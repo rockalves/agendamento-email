@@ -1,2 +1,8 @@
 # agendamento-email
-s
+
+
+jdk-14
+wildfly20
+mysql
+mysqlconnector-java
+
