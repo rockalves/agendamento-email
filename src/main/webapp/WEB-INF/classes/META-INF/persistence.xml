@@ -3,6 +3,5 @@
 <persistence>
    <persistence-unit name="AgendamentoEmailDS">
         <jta-data-source>java:/AgendamentoEmailDS</jta-data-source>
-        <!-- <jta-data-source>java:jboss/datasources/AgendamentoEmailDS</jta-data-source> -->
     </persistence-unit>
 </persistence>
