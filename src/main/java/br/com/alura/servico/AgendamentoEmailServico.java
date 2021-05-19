@@ -16,8 +16,6 @@ public class AgendamentoEmailServico {
 	private AgendamentoEmailDAO dao;
 
 	public List<AgendamentoEmail> listar() {
-		AgendamentoEmailDAO dao = new AgendamentoEmailDAO();
-
 		return dao.listar();
 	}
 

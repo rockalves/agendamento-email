@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
+
 import javax.persistence.PersistenceContext;
 
 import br.com.alura.entidade.AgendamentoEmail;
@@ -17,8 +17,9 @@ public class AgendamentoEmailDAO {
 	private EntityManager entityManager;
 
 	public List<AgendamentoEmail> listar() {
-		return entityManager.createQuery("SELECT ae FROM AgendamentoEmail ae", 
-				AgendamentoEmail.class).getResultList();
+		return entityManager
+				.createQuery("SELECT ae FROM AgendamentoEmail ae", AgendamentoEmail.class)
+				.getResultList();
 
 	}
 }
