@@ -10,7 +10,6 @@ import br.com.alura.dao.AgendamentoEmailDAO;
 import br.com.alura.entidade.AgendamentoEmail;
 
 @Stateless
-
 public class AgendamentoEmailServico {
 
 	private static final Logger LOGGER = Logger.getLogger(AgendamentoEmailServico.class.getName());
