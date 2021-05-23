@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import br.com.alura.dao.AgendamentoEmailDAO;
@@ -30,6 +32,7 @@ public class AgendamentoEmailServico {
 		return dao.listarPorNaoAgendado();
 	}
 
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public void alterar(AgendamentoEmail agendamentoEmail) {
 		agendamentoEmail.setAgendado(true);
 		dao.alterar(agendamentoEmail);

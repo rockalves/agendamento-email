@@ -5,6 +5,10 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
@@ -14,6 +18,7 @@ import br.com.alura.entidade.AgendamentoEmail;
 import br.com.alura.servico.AgendamentoEmailServico;
 
 @Singleton
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class AgendamentoEmailJob {
 
 	@Inject
@@ -27,6 +32,7 @@ public class AgendamentoEmailJob {
 	private Queue queue;
 	
 	@Schedule(hour = "*", minute = "*", second = "*/7")
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public synchronized void enviarEmail() {
 		List<AgendamentoEmail> listarPorNaoAgendado = agendamentoEmailServico.listarPorNaoAgendado();
 		listarPorNaoAgendado.forEach(emailNaoAgendado -> {
